@@ -103,7 +103,7 @@ body {
 .hero {
     padding: 120px 0 80px;
     text-align: center;
-    background: #fff;
+    background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('https://images.unsplash.com/photo-1515168833906-d2a3b82b3029?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
 }
 
 .hero-content {
@@ -421,7 +421,7 @@ body {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 60px;
-    align-items: start;
+    align-items: center;
 }
 
 .info-content h2 {
