@@ -1,139 +1,792 @@
-/* 全局样式重置 */
+/* CSS Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    background: #fff;
+}
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* 导航栏样式 */
-nav {
-    background-color: #fff;
-    padding: 1rem 0;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 2rem;
+/* Navigation Styles */
+.navbar {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #f0f0f0;
 }
 
-nav ul {
-    list-style: none;
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
 }
 
-nav a {
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
     text-decoration: none;
-    color: #333;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #666;
+    font-weight: 500;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #1a1a1a;
+}
+
+.nav-cta {
+    background: #4F46E5;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.nav-cta:hover {
+    background: #4338CA;
+    transform: translateY(-1px);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    padding: 120px 0 80px;
+    text-align: center;
+    background: #fff;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-graphic {
+    font-size: 80px;
+    margin-bottom: 32px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-button.primary {
+    background: #4F46E5;
+    color: white;
+}
+
+.cta-button.primary:hover {
+    background: #4338CA;
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    background: #F3F4F6;
+    color: #374151;
+}
+
+.cta-button.secondary:hover {
+    background: #E5E7EB;
+    transform: translateY(-2px);
+}
+
+/* Services Section */
+.services-section {
+    padding: 80px 0;
+    background: #F9FAFB;
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.services-header h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.services-subtitle h3 {
+    font-size: 24px;
+    color: #374151;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.services-subtitle p {
+    font-size: 18px;
+    color: #6B7280;
+    margin-bottom: 32px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.service-card {
+    background: white;
+    padding: 40px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.service-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.service-card p {
+    color: #6B7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.service-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag {
+    background: #EEF2FF;
+    color: #4F46E5;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
     font-weight: 500;
 }
 
-nav a:hover {
-    color: #0066cc;
+/* Testimonials Section */
+.testimonials {
+    padding: 80px 0;
+    background: #fff;
 }
 
-/* 主要内容区域 */
-main {
-    min-height: calc(100vh - 200px);
-}
-
-/* 页脚样式 */
-footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    border-top: 1px solid #eee;
+.testimonials h2 {
     text-align: center;
-    color: #666;
+    font-size: 40px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 60px;
 }
 
-/* 通用标题样式 */
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #222;
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin: 2rem 0 1rem;
-    color: #333;
+.testimonial-card {
+    background: #F9FAFB;
+    padding: 32px;
+    border-radius: 16px;
+    display: flex;
+    gap: 24px;
 }
 
-h3 {
-    font-size: 1.4rem;
-    margin: 1.5rem 0 1rem;
-    color: #444;
+.client-info {
+    min-width: 120px;
 }
 
-/* 段落和列表样式 */
-p {
-    margin-bottom: 1rem;
+.client-role {
+    background: #EEF2FF;
+    color: #4F46E5;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    text-align: center;
 }
 
-ul, ol {
-    margin: 1rem 0;
-    padding-left: 2rem;
+.client-location {
+    color: #6B7280;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 8px;
 }
 
-li {
-    margin-bottom: 0.5rem;
+.testimonial-content p {
+    color: #374151;
+    font-style: italic;
+    margin-bottom: 16px;
+    line-height: 1.6;
 }
 
-/* 链接样式 */
-a {
-    color: #0066cc;
+.client-name {
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+
+/* Target Audiences Section */
+.target-audiences {
+    padding: 80px 0;
+    background: #F9FAFB;
+}
+
+.audiences-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.audiences-graphic {
+    font-size: 80px;
+    margin-bottom: 32px;
+}
+
+.audiences-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+}
+
+.audiences-header p {
+    font-size: 18px;
+    color: #6B7280;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.audiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.audience-card {
+    background: white;
+    padding: 40px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.audience-icon {
+    font-size: 48px;
+    margin-bottom: 24px;
+}
+
+.audience-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.audience-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4F46E5;
+    margin-bottom: 16px;
+}
+
+.audience-card p {
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+/* Custom Solutions Section */
+.custom-solutions {
+    padding: 80px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.solutions-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.solutions-graphic {
+    font-size: 80px;
+    margin-bottom: 32px;
+}
+
+.custom-solutions h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+}
+
+.custom-solutions p {
+    font-size: 18px;
+    color: #6B7280;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Company Info Section */
+.company-info {
+    padding: 80px 0;
+    background: #F9FAFB;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.info-content h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 32px;
+}
+
+.company-details {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.detail-row {
+    padding: 12px 0;
+    border-bottom: 1px solid #F3F4F6;
+    color: #374151;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row strong {
+    color: #1a1a1a;
+}
+
+.compliance-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.badge {
+    background: #EEF2FF;
+    color: #4F46E5;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Final CTA Section */
+.final-cta {
+    padding: 80px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.cta-content p {
+    font-size: 18px;
+    color: #6B7280;
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 80px 0;
+    background: #F9FAFB;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contact-header h2 {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.contact-header p {
+    font-size: 18px;
+    color: #6B7280;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.contact-card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.contact-card p {
+    color: #6B7280;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: #4F46E5;
     text-decoration: none;
 }
 
-a:hover {
+.contact-card a:hover {
     text-decoration: underline;
 }
 
-/* 公司信息卡片样式 */
-.company-info {
-    background: #f8f9fa;
-    padding: 2rem;
-    border-radius: 8px;
-    margin: 2rem 0;
+/* Footer */
+.footer {
+    background: #1F2937;
+    color: white;
+    padding: 60px 0 30px;
 }
 
-.company-info p {
-    margin-bottom: 0.5rem;
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 40px;
 }
 
-/* 服务内容样式 */
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
+.footer-brand .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
 }
 
-.service-item {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.footer-brand p {
+    color: #D1D5DB;
+    margin-bottom: 8px;
+    max-width: 400px;
 }
 
-/* 响应式设计 */
+.footer-links {
+    display: flex;
+    gap: 32px;
+}
+
+.footer-links a {
+    color: #D1D5DB;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid #374151;
+    color: #9CA3AF;
+    font-size: 14px;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    nav ul {
+    .container {
+        padding: 0 16px;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    /* Navigation */
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
         flex-direction: column;
-        gap: 1rem;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 40px 0;
+        gap: 24px;
     }
-    
-    h1 {
-        font-size: 2rem;
+
+    .nav-menu.active {
+        left: 0;
     }
-    
-    .services {
+
+    .nav-cta {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 100px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+
+    .hero-graphic,
+    .audiences-graphic,
+    .solutions-graphic {
+        font-size: 60px;
+    }
+
+    /* Services */
+    .services-header h2 {
+        font-size: 32px;
+    }
+
+    .services-subtitle h3 {
+        font-size: 20px;
+    }
+
+    .services-grid {
         grid-template-columns: 1fr;
     }
+
+    .service-card {
+        padding: 32px 24px;
+    }
+
+    /* Testimonials */
+    .testimonials h2 {
+        font-size: 32px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-card {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .client-info {
+        min-width: auto;
+    }
+
+    /* Target Audiences */
+    .audiences-header h2 {
+        font-size: 32px;
+    }
+
+    .audiences-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .audience-card {
+        padding: 32px 24px;
+    }
+
+    /* Custom Solutions */
+    .custom-solutions h2 {
+        font-size: 32px;
+    }
+
+    /* Company Info */
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Contact */
+    .contact-header h2 {
+        font-size: 32px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    /* General */
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .services-header h2,
+    .testimonials h2,
+    .audiences-header h2,
+    .custom-solutions h2,
+    .contact-header h2 {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+
+    .service-card,
+    .testimonial-card,
+    .audience-card,
+    .contact-card {
+        padding: 24px 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-card,
+.testimonial-card,
+.audience-card,
+.contact-card {
+    animation: fadeInUp 0.6s ease-out;
 } 
